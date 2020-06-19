@@ -14,11 +14,10 @@ function getData(req,res){
   const weight = Number(req.query.weight);
   const mailType = req.query.mailType;
 
-  res.send(weight + " " + mailType);
-  //calcRate(res, weight, mailType);
+  calcRate(res, weight, mailType);
 }
 
-function calcRate(res, wieght, mailType){
+function calcRate(res, weight, mailType){
 
   var cost = 100;
 

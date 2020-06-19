@@ -1,9 +1,9 @@
 const express = require('express')
 const path = require('path')
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 8888
 
 express()
-  .use(express.static(path.join(__dirname, 'public')))
+  .use(express.static(__dirname + 'public'))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/getRate', getData)
@@ -13,14 +13,14 @@ function getData(req,res){
   const weight = req.query.weight;
   const mailType = req.query.mailType;
 
-  calcRate(res, weight, mailType)
+  calcRate(res, weight, mailType);
 }
 
 function calcRate(res, wieght, mailType){
 
   var cost = 100;
 
-  const params = {weight: weight, mailType: mailType, cost: cost}
+  const params = {weight: weight, mailType: mailType, cost: cost};
 
   res.render('pages/poastageRate', params);
 }

@@ -11,7 +11,7 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 function getData(req,res){
-  const weight = req.query.weight;
+  const weight = Number(req.query.weight);
   const mailType = req.query.mailType;
 
   calcRate(res, weight, mailType);
@@ -23,5 +23,5 @@ function calcRate(res, wieght, mailType){
 
   const params = {weight: weight, mailType: mailType, cost: cost};
 
-  res.render('pages/poastageRate', params);
+  res.render('pages/postageRate', params);
 }

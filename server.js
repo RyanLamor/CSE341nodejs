@@ -3,11 +3,11 @@ const path = require('path');
 const PORT = process.env.PORT || 8888;
 
 express()
-  .use(express.static(__dirname + 'public'))
+  .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/getRate', getData)
-  .get('/', function (req, res) {res.send('Testing')})
+  .get('/', function (req, res) {res.send('Testing')} )
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 function getData(req,res){

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Postage Rate Calculator</title>
+    <style>
+      .center{
+        text-align: center;
+        padding:150px 50px;
+        width: 50%;
+        margin: auto;
+        border: solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div class = "center">
+      <form action="/getRate" method="get">
+        <label for="weight">Package Weight</label>
+        <input id="weight" name="weight" type="number"> oz
+        <br>
+
+        <label for="mail_Type">Mail Type</label>
+        <select style="margin:25px 0px;" id="mail_Type" name="mailType">
+          <option value="Letters_stamped">Letters (Stamped)</option>
+          <option value="Letters_metered">Letters (Metered)</option>
+          <option value="large_envelope">Large Envelope (Flats)</option>
+          <option value="First_Class">Frist-Class Package Service (Retail)</option>
+        </select>
+
+        <input type="submit">
+
+      </form>
+    </div>
+
+  </body>
+</html>

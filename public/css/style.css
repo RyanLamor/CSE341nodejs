@@ -1,0 +1,29 @@
+body{
+  background-color: #fff3e6 !important;
+  margin: 0px;
+}
+header{
+  text-align: left;
+  background-color: #9e1e3a;
+  padding: 25px;
+}
+header > h1{
+  color: white;
+}
+.sticky-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #9e1e3a;
+}
+.footer-container {
+  text-align: center;
+  width: auto;
+  padding: 0 15px;
+}
+.header{
+  text-align: center;
+  padding: 25px;
+}

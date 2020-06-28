@@ -6,15 +6,22 @@
     <style>
       .center{
         text-align: center;
-        padding:150px 50px;
         width: 50%;
         margin: auto;
         border: solid;
+        padding: 50px;
+      }
+      header{
+        margin-bottom: 75px;
       }
     </style>
   </head>
   <body>
     <div class = "center">
+      <header>
+        <h1>Postage Rate Calculator</h1>
+      </header>
+
       <form action="/getRate" method="get">
         <label for="weight">Package Weight</label>
         <input id="weight" name="weight" type="number" step="0.1"> oz
@@ -28,6 +35,7 @@
           <option value="First_Class">Frist-Class Package Service (Retail)</option>
         </select>
 
+        <br>
         <input type="submit">
 
       </form>

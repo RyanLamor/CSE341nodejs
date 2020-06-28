@@ -1,7 +1,7 @@
 {
-  "name": "prove09",
+  "name": "project",
   "version": "1.0.0",
-  "description": "Postal Rate Calc",
+  "description": "Ashlyn's Photos",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,0 +1,35 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS appointments;
+DROP TABLE IF EXISTS albums;
+DROP TABLE IF EXISTS users_albums;
+
+CREATE TABLE appointments(
+  appointment_id SERIAL PRIMARY key,
+  date DATE NOT NULL,
+  time INT NOT NULL,
+  location varchar(180) NOT NULL,
+  notes varchar(1000)
+);
+
+CREATE TABLE users(
+  user_id SERIAL PRIMARY key,
+  first_name VARCHAR(80) NOT NULL,
+  last_name VARCHAR(80) NOT NULL,
+  email VARCHAR(100) NOT null,
+  password VARCHAR (20) NOT null,
+  appointment_id INT references appointments(appointment_id)
+);
+
+CREATE TABLE albums(
+  album_id SERIAL PRIMARY key,
+  link VARCHAR(200)
+);
+
+CREATE TABLE users_albums(
+  user_id INT references users(user_id),
+  album_id INT references albums(album_id)
+);
+
+INSERT INTO users (email, password, first_name, last_name) VALUES ('example1@gmail.com', 'test123', 'John', 'Smith');
+INSERT INTO albums (link) values ('https://photos.google.com/share/AF1QipMwdPpynIQiZDgnBjEK4cog8KYY4drCfPVZv7cXkMNWGaWmJeyuALpX4Pzqn-mrKA?key=TW5xREFNVTNkTmV6eXAyektSNFMzZmU2V1o5Rk1R');
+INSERT INTO users_albums VALUES (1,1);

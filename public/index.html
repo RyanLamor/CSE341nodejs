@@ -17,6 +17,8 @@
   <body onload="start()">
     <!--My JS Scripts-->
     <script src="js/main.js"></script>
+    <script src="js/getPictures.js"></script>
+    <script src="js/login.js"></script>
 
     <!--Main Header-->
     <header>
@@ -55,7 +57,7 @@
     <!--Footer-->
     <footer class="sticky-footer">
       <div class="footer-container">
-        <span class="text-muted">Copyright 2020, Ashlyn Photography. All Rights Reserved.</span>
+        <p style="color:white;">Copyright 2020, Ashlyn Photography. All Rights Reserved.</p>
       </div>
     </footer>
 
@@ -168,8 +170,12 @@
     </div>
 
     <!--Body-->
-    <div class="header">
-      <p>Form to login to be created</p>
+    <div class="login-form">
+    	<form onsubmit="return checkLogin()">
+    		<input id="userEmail" type="text" placeholder="Email" required>
+    		<input id="userPass" type="password" placeholder="Password" required>
+    		<input type="submit">
+    	</form>
     </div>
 
     </div>

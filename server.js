@@ -40,6 +40,7 @@ function checkLogin(req,res){
   getPersonFromDb(email, pass, function(error, result) {
     if (error || result == null || result.length != 1) {
     			res.status(500).json({success: false, data: error});
+          console.log("Database connnection error: " + error);
     		} else {
     			const person = result[0];
     			res.status(200).json(person);

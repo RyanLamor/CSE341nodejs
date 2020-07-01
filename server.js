@@ -11,8 +11,11 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 const { Pool } = require("pg");
-const connectionString = process.env.DATABASE_URL || "postgres://ggpdhnfjvkfypv:0dc2018984b219eae4c13974c4d693df65fbd57d30ea8a9fab1d59eee0a5cc98@ec2-52-70-15-120.compute-1.amazonaws.com:5432/d1isvsp31uiuib";
-const pool = new Pool({connectionString: connectionString});
+const db_url = process.env.DATABASE_URL;
+const connectionString = process.env.DATABASE_URL || 'postgres://ggpdhnfjvkfypv:0dc2018984b219eae4c13974c4d693df65fbd57d30ea8a9fab1d59eee0a5cc98@ec2-52-70-15-120.compute-1.amazonaws.com:5432/d1isvsp31uiuib';
+
+console.log("DATABASE_URL: " + )
+const pool = new Pool({connectionString: db_url});
 
 //put functions in other files
 function test(req,res){
@@ -52,16 +55,15 @@ function getPersonFromDb(email, pass, callback){
   const params = [email, pass];
 
   pool.query(query, params, function(err, result) {
-
     if (err) {
       console.log("Error in query: ")
       console.log(err);
       callback(err, null);
     }
 
-      console.log("Found result: " + JSON.stringify(result.rows));
+    console.log("Found result: " + JSON.stringify(result.rows));
 
-      callback(null, result.rows);
+    callback(null, result.rows);
 
 
   });

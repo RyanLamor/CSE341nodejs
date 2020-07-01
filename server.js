@@ -12,7 +12,7 @@ express()
 
 const { Pool } = require("pg");
 const db_url = process.env.DATABASE_URL;
-const connectionString = process.env.DATABASE_URL || 'postgres://ggpdhnfjvkfypv:0dc2018984b219eae4c13974c4d693df65fbd57d30ea8a9fab1d59eee0a5cc98@ec2-52-70-15-120.compute-1.amazonaws.com:5432/d1isvsp31uiuib';
+const connectionString = process.env.DATABASE_URL || 'postgres://ggpdhnfjvkfypv:0dc2018984b219eae4c13974c4d693df65fbd57d30ea8a9fab1d59eee0a5cc98@ec2-52-70-15-120.compute-1.amazonaws.com:5432/d1isvsp31uiuib?ssl=true';
 
 console.log("DATABASE_URL: " + db_url);
 const pool = new Pool({connectionString: db_url});

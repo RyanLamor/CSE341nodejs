@@ -25,12 +25,12 @@ function test(req,res){
 }
 
 function getPictures(req,res){
-  if (request.session.loggedin) {
-		response.send('Login Success');
+  if (req.session.loggedin) {
+		res.send('Login Success');
 	} else {
-		response.send('Please login to view!');
+		res.send('Please login to view!');
 	}
-	response.end();
+	res.end();
 }
 
 function checkLogin(req,res){

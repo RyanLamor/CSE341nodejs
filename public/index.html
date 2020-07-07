@@ -19,6 +19,7 @@
     <script src="js/main.js"></script>
     <script src="js/getPictures.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/isLoggedIn.js"></script>
 
     <!--Main Header-->
     <header>
@@ -152,8 +153,8 @@
     </div>
 
     <!--Body-->
-    <div class="header">
-      <p>Links will open in Google Photos</p>
+    <div class="header" id="viewPicsHeader">
+      <p id="viewPicsText">Links will open in Google Photos</p>
     </div>
 
     </div>
@@ -170,12 +171,16 @@
     </div>
 
     <!--Body-->
-    <div class="login-form">
+    <div class="login-form" id="loginForm">
     	<form onsubmit="return checkLogin()">
     		<input id="userEmail" type="text" placeholder="Email" required>
     		<input id="userPass" type="password" placeholder="Password" required>
     		<input type="submit">
     	</form>
+    </div>
+
+    <div id="alreadyLoggedIn">
+      <h2>You are already logged in</h2>
     </div>
 
     </div>

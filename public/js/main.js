@@ -1,6 +1,8 @@
 function start() {
-  addeventlisteners();
-  render(window.location.hash);
+  $(document).ready(function(){
+    addeventlisteners();
+    render(window.location.hash);
+  });
 }
 
 function addeventlisteners(){
@@ -20,9 +22,6 @@ function render(hashkey){
 
     //unhide the page that was selected
     switch(hashkey){
-      case "":
-        pages[0].style.display= 'block';
-        break;
       case "#home":
         pages[0].style.display= 'block';
         break;
@@ -41,9 +40,21 @@ function render(hashkey){
         break;
       case "#login":
         pages[4].style.display= 'block';
+        if ( isLoggedIn() ){
+          //document.getElementById("loginForm").style.display = 'block';
+          //document.getElementById("alreadyLoggedIn").style.display = 'none';
+          $('#loginForm')[0].style.display = 'none';
+          $('#alreadyLoggedIn')[0].style.display = 'block';
+        }
+        else {
+          //document.getElementById("loginForm").style.display = 'block';
+          //document.getElementById("alreadyLoggedIn").style.display = 'none';
+          $('#loginForm')[0].style.display = 'block';
+          $('#alreadyLoggedIn')[0].style.display = 'none';
+        }
         break;
       default:
-        pages[0].style.display= 'block';
+        window.location.replace("#home");
         break;
       }
 }

@@ -8,7 +8,13 @@ function checkLogin(){
     password: password
   },
   function(response){
-    console.log("test" + response);
+    console.log("login res:" + response);
+    if (response == "-1"){
+      alert("No Username/Password Combination Found");
+    }
+    else{
+      alert("Login Successfull");
+    }
   });
 
 

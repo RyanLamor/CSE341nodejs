@@ -108,8 +108,9 @@ function getPersonFromDb(email, pass, callback){
 			console.log("Error in DB: " + err);
 			callback(err, null);
 		}
-
-		console.log("Found Results" + JSON.stringify(results.rows));
-		callback(null, results.rows);
-	});
+		else{
+			console.log("Found Results" + JSON.stringify(results.rows));
+			callback(null, results.rows);
+		}
+});
 }

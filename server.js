@@ -66,11 +66,11 @@ function getPicturesLink(user_id, callback){
       console.log("Error in query: " + err);
       callback(err, null);
     }
-
-    console.log("Found result: " + JSON.stringify(result.rows));
-
-    callback(null, result.rows);
-  });
+		else{
+    	console.log("Found result: " + JSON.stringify(result.rows));
+    	callback(null, result.rows);
+		}
+	});
 }
 
 function checkLogin(req,res){

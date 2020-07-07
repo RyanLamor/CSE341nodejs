@@ -31,11 +31,6 @@ function isLoggedIn(req,res) {
 	res.end();
 }
 
-function getPictures(req,res) {
-	res.send('-1');
-	res.end();
-}
-
 function getPictures(req,res){
   if (req.session.loggedin) {
 		user_id = req.session.userId;

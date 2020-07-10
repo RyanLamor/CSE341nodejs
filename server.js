@@ -13,6 +13,7 @@ app.use(session({
 app.get('/getPictures', getPictures);
 app.get('/checklogin', checkLogin);
 app.get('/isLoggedIn', isLoggedIn);
+app.post('/register', register);
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -21,7 +22,7 @@ const connectionString = process.env.DATABASE_URL || 'postgres://ggpdhnfjvkfypv:
 const pool = new Pool({connectionString: connectionString});
 
 
-function isLoggedIn(req,res) {
+function isLoggedIn(req,res) {//possible middleware function to be implemented
   if (req.session.loggedin){
     res.send(true);
   }
@@ -29,6 +30,10 @@ function isLoggedIn(req,res) {
   	res.send(false);
   }
 	res.end();
+}
+
+function register(req,res){
+
 }
 
 function getPictures(req,res){
@@ -74,11 +79,13 @@ function getPicturesLink(user_id, callback){
 }
 
 function checkLogin(req,res){
+	console.log("checkLogin function called");
 	debugger;
   const email = req.query.email;
   const pass = req.query.password;
 
   getPersonFromDb(email, pass, function(error, result) {
+		console.log("Results form Query (getPersonFromDb) passed to callback");
     if (error) {
 			console.log("Database connnection error: " + error);
     	res.status(500).json({success: false, data: error});
@@ -88,6 +95,7 @@ function checkLogin(req,res){
 			res.send('-1');
 		}
 		else {
+			console.log("Results:" + result);
     	const person = result[0];
 			req.session.loggedin = true;
 			req.session.userId = result[0].user_id;
@@ -100,10 +108,12 @@ function checkLogin(req,res){
 }
 
 function getPersonFromDb(email, pass, callback){
+	console.log("getPersonFromDb Function called");
 	const query = "Select user_id, first_name, last_name FROM users WHERE email = $1 AND password = $2";
 	const params = [email, pass];
 
 	pool.query(query, params, function(err,results){
+		console.log("Query has started");
 		if (err) {
 			console.log("Error in DB: " + err);
 			callback(err, null);

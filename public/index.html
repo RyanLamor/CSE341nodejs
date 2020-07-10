@@ -20,6 +20,7 @@
     <script src="js/getPictures.js"></script>
     <script src="js/login.js"></script>
     <script src="js/isLoggedIn.js"></script>
+    <script src="js/newRegister.js"></script>
 
     <!--Main Header-->
     <header>
@@ -55,12 +56,12 @@
       </div>
     </nav>
 
-    <!--Footer-->
+    <!--Footers
     <footer class="sticky-footer">
       <div class="footer-container">
         <p style="color:white;">Copyright 2020, Ashlyn Photography. All Rights Reserved.</p>
       </div>
-    </footer>
+    </footer>-->
 
     <!--***********START HOMEPAGE*****************************************************************************************-->
     <!--***********START HOMEPAGE*****************************************************************************************-->
@@ -72,7 +73,7 @@
     </div>
 
     <!--Body-->
-    <div style="width:80%; margin:auto;" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div style="width:80%; margin:auto; max-width: 900px; padding-bottom: 25px;" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -87,10 +88,10 @@
           <img class="d-block w-100" src="images/flower.jpg" alt="Second slide" height=450>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="images/jump.jpg" alt="Second slide" height=450>
+          <img class="d-block w-100" src="images/jump.jpg" alt="Thrid slide" height=450>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="images/tracks.jpg" alt="Third slide" height=450>
+          <img class="d-block w-100" src="images/tracks.jpg" alt="Fourth slide" height=450>
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -102,6 +103,13 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+
+    <footer class='normal-footer'>
+      <div class="footer-container">
+        <p style="color:white;">Copyright 2020, Ashlyn Photography. All Rights Reserved.</p>
+      </div>
+    </footer>
+
 
     </div>
     <!--***********END HOMEPAGE*****************************************************************************************-->
@@ -117,9 +125,21 @@
     </div>
 
     <!--Body-->
-    <div class="header">
-      <p>Register Form To Be Created Here</p>
+    <div class="basic-form" id="registerForm">
+    	<form onsubmit="return newRegister()">
+    		<input id="newUserEmail" type="text" placeholder="Email" required>
+    		<input id="newUserPass" type="password" placeholder="Password" required>
+        <input id="newFirstName" type="text" placeholder="First Name" required>
+        <input id="newLastName" type="text" placeholder="Last Name" required>
+        <input type="submit">
+    	</form>
     </div>
+
+    <footer class="sticky-footer">
+      <div class="footer-container">
+        <p style="color:white;">Copyright 2020, Ashlyn Photography. All Rights Reserved.</p>
+      </div>
+    </footer>
 
     </div>
     <!--***********END REGISTER PAGE*****************************************************************************************-->
@@ -137,7 +157,14 @@
     <!--Body-->
     <div class="header">
       <p>Looks like you have no appointments scheduled right now</p>
+      <button style="background-color:#535B63;" type="button" class="btn btn-secondary">Schedule Appointment</button>
     </div>
+
+    <footer class="sticky-footer">
+      <div class="footer-container">
+        <p style="color:white;">Copyright 2020, Ashlyn Photography. All Rights Reserved.</p>
+      </div>
+    </footer>
 
     </div>
     <!--***********END APPOINTMENT PAGE*****************************************************************************************-->
@@ -157,6 +184,12 @@
       <p id="viewPicsText">Links will open in Google Photos</p>
     </div>
 
+    <footer class="sticky-footer">
+      <div class="footer-container">
+        <p style="color:white;">Copyright 2020, Ashlyn Photography. All Rights Reserved.</p>
+      </div>
+    </footer>
+
     </div>
     <!--***********END PICTURES PAGE*****************************************************************************************-->
     <!--***********END PICTURES PAGE*****************************************************************************************-->
@@ -171,7 +204,7 @@
     </div>
 
     <!--Body-->
-    <div class="login-form" id="loginForm">
+    <div class="basic-form" id="loginForm">
     	<form onsubmit="return checkLogin()">
     		<input id="userEmail" type="text" placeholder="Email" required>
     		<input id="userPass" type="password" placeholder="Password" required>
@@ -182,6 +215,12 @@
     <div id="alreadyLoggedIn">
       <h2>You are already logged in</h2>
     </div>
+
+    <footer class="sticky-footer">
+      <div class="footer-container">
+        <p style="color:white;">Copyright 2020, Ashlyn Photography. All Rights Reserved.</p>
+      </div>
+    </footer>
 
     </div>
     <!--***********END LOGIN PAGE*****************************************************************************************-->

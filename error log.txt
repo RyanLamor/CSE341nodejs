@@ -1,0 +1,38 @@
+https://github.com/RyanLamor/CSE341nodejs/blob/master/server.js?ts=2
+https://github.com/RyanLamor/CSE341nodejs/blob/master/public/js/login.js
+
+----------
+Node Js Log
+----------
+$ node server.js
+Listening on 8888
+checkLogin function called
+getPersonFromDb Function called
+(node:13824) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+Query has started
+Found Results[{"user_id":1,"first_name":"John","last_name":"Smith"}]
+Results form Query (getPersonFromDb) passed to callback
+Results:[object Object]
+_http_outgoing.js:518
+    throw new ERR_HTTP_HEADERS_SENT('set');
+    ^
+
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:518:11)
+    at ServerResponse.header (D:\Documents\BYUI\_Spring2020\Web2\CSE341nodejs\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.json (D:\Documents\BYUI\_Spring2020\Web2\CSE341nodejs\node_modules\express\lib\response.js:264:10)
+    at D:\Documents\BYUI\_Spring2020\Web2\CSE341nodejs\server.js:104:22
+    at D:\Documents\BYUI\_Spring2020\Web2\CSE341nodejs\server.js:123:4
+    at Query.<anonymous> (D:\Documents\BYUI\_Spring2020\Web2\CSE341nodejs\node_modules\pg-pool\index.js:371:18)
+    at Query.handleReadyForQuery (D:\Documents\BYUI\_Spring2020\Web2\CSE341nodejs\node_modules\pg\lib\query.js:129:12)
+    at Connection.<anonymous> (D:\Documents\BYUI\_Spring2020\Web2\CSE341nodejs\node_modules\pg\lib\client.js:266:19)
+    at Connection.emit (events.js:315:20)
+    at D:\Documents\BYUI\_Spring2020\Web2\CSE341nodejs\node_modules\pg\lib\connection.js:109:10 {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+
+----------
+Browser Log
+----------
+After the server responds my ajax request displays the returned result from the server.
+In this case, with the error, the returned response is just blank line in the console.

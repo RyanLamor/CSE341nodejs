@@ -10,6 +10,11 @@ header{
 header > h1{
   color: white;
 }
+.normal-footer {
+  width: 100%;
+  background-color: #9e1e3a;
+  padding: 18px 0px;
+}
 .sticky-footer {
   position: absolute;
   bottom: 0;
@@ -21,31 +26,34 @@ header > h1{
 .footer-container {
   text-align: center;
   width: auto;
-  padding: 0 15px;
+}
+.footer-container > p{
+  padding:0px;
+  margin: 0px;
 }
 .header{
   text-align: center;
   padding: 25px;
 }
-.login-form {
+.basic-form {
 			width: 300px;
 			margin: 0 auto;
 		}
-.login-form h1 {
+.basic-form h1 {
 			text-align: center;
 			color: #4d4d4d;
 			font-size: 24px;
 			padding: 20px 0 20px 0;
 		}
-.login-form input[type="password"],
-.login-form input[type="text"] {
+.basic-form input[type="password"],
+.basic-form input[type="text"] {
 			width: 100%;
 			padding: 15px;
 			border: 1px solid #dddddd;
 			margin-bottom: 15px;
 			box-sizing:border-box;
 		}
-.login-form input[type="submit"] {
+.basic-form input[type="submit"] {
 			width: 100%;
 			padding: 15px;
 			background-color: #535b63;

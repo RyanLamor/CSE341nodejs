@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
+var bodyParser = require('body-parser');
 const PORT = process.env.PORT || 8888;
 
 app = express();
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
 	secret: 'secret',
@@ -33,12 +36,46 @@ function isLoggedIn(req,res) {//possible middleware function to be implemented
 }
 
 function register(req,res){
+	var firstName = req.body.first_name;
+	var lastName = req.body.last_name;
+	var email = req.body.email;
+	var pass = req.body.password;
 
+	console.log('Called Register Function');
+
+	insertUser(firstName, lastName, email, pass, function(error, result){
+		if (error) {
+			res.send(error + " ");
+			console.log("Database error: " + error);
+		}
+		else {
+			console.log(result[0]);
+			res.send('success');
+		}
+	});
+}
+
+function insertUser(firstName, lastName, email, pass, callback){
+	const query = 'INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *';
+	const values = [firstName, lastName, email, pass];
+
+	console.log('Entering new User');
+
+	pool.query(query, values, function(err, result) {
+    if (err) {
+      console.log("Error in query: " + err);
+      callback(err, null);
+    }
+		else{
+    	console.log("Found result: " + JSON.stringify(result.rows));
+    	callback(null, result.rows);
+		}
+	});
 }
 
 function getPictures(req,res){
   if (req.session.loggedin) {
-		user_id = req.session.userId;
+		var user_id = req.session.userId;
 
 		getPicturesLink(user_id, function(error, result) {
 			if (error) {

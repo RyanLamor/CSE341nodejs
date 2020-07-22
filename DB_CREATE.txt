@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS appointments;
-DROP TABLE IF EXISTS albums;
-DROP TABLE IF EXISTS users_albums;
+DROP TABLE IF EXISTS users cascade;
+DROP TABLE IF EXISTS appointments cascade;
+DROP TABLE IF EXISTS albums cascade;
+DROP TABLE IF EXISTS users_albums cascade;
 
 CREATE TABLE appointments(
   appointment_id SERIAL PRIMARY key,
@@ -15,7 +15,7 @@ CREATE TABLE users(
   user_id SERIAL PRIMARY key,
   first_name VARCHAR(80) NOT NULL,
   last_name VARCHAR(80) NOT NULL,
-  email VARCHAR(100) NOT null,
+  email VARCHAR(100) UNIQUE NOT null,
   password VARCHAR (20) NOT null,
   appointment_id INT references appointments(appointment_id)
 );

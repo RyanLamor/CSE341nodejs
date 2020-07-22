@@ -33,9 +33,6 @@ function render(hashkey){
         break;
       case "#pictures":
         pages[3].style.display= 'block';
-        //add function call to get info from database
-        //function will call '/getpictures' on server
-        //return JSON of album link
         getPictures();
         break;
       case "#login":

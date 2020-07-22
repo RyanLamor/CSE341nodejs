@@ -1,5 +1,6 @@
 https://github.com/RyanLamor/CSE341nodejs/blob/master/server.js?ts=2
 https://github.com/RyanLamor/CSE341nodejs/blob/master/public/js/login.js
+https://github.com/RyanLamor/CSE341nodejs/blob/master/error%20log.txt
 
 ----------
 Node Js Log
